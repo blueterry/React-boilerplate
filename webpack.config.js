@@ -25,6 +25,15 @@ module.exports ={
     },
     resolve: {
         root: __dirname,
+        modulesDirectories:[
+            'node_modules',            
+            './app/actions',
+            './app/api',
+            './app/components',            
+            './app/reducers',
+            './app/store'
+        ],
+
         alias:{            
             Main:           'app/components/Main.jsx',
             Nav:            'app/components/Nav.jsx',           
