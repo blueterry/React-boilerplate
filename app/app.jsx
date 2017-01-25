@@ -7,6 +7,8 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import {checkLocal} from 'loginActions';
 import {configStore} from 'configStore';
 
+import loginAPI from 'loginAPI';
+
 import Main from 'Main';
 import Loginform from 'LoginForm';
 
@@ -18,19 +20,26 @@ $(document).foundation();
 require('style!css!sass!appStyles');
 
 var store = configStore();
+var locUser = checkLocal();
+
+//console.log('localStorage.user:',localStorage.getItem('user'));
+//console.log('local user init:', locUser);
 
 store.subscribe(()=>{
-    var state = store.getState();
-    state.user = checkLocal();
-    console.log('initial State:', state);
+    var state = store.getState();            
+    //console.log('---state changed:',state);
+    loginAPI.setLocalUser(state.user);
 });
+
 store.dispatch(checkLocal());
+
+
 //var initialUser = JSON.parse(localStorage.getItem('user'));
 
 ReactDOM.render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" component={Main}>
+            <Route path="/" component={Main} >
                 <Route path="loginform" component={Loginform}>Login</Route>
             </Route>
         </Router>

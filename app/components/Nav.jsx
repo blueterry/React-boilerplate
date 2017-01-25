@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 import Login from 'Login';
 
 class Nav extends Component {
-    render() {
-        var {user} = this.props
+    render() {        
         return (
             <div className="top-bar top-bar">
                 <div className="top-bar-left">
@@ -23,8 +22,9 @@ class Nav extends Component {
                 <div className="top-bar-right">
                     <ul className="menu">
                         <li className="menu-text">
-                            <Login user={user} />
+                            <Login/>
                         </li>
+                        <li className="menu-text"></li>
                         <li className="menu-text">
                             Created by <a  target="_blank" href="http://www.rekete.com">Rekete</a>
                         </li>
@@ -35,4 +35,4 @@ class Nav extends Component {
     }
 }
 
-export default connect(state=>state.user)(Nav);
+export default connect()(Nav);

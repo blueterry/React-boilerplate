@@ -12,14 +12,19 @@ describe('loginReducer',()=>{
     it('Should start logging',()=>{
         var action = {
             type: LOGGING_IN,
-            user:{
-                userName: 'test',
-                password: 'test',
-                userId: -1
-            },
+            userName: 'test',
+            password: 'test',
+            userId: -1,            
             loggingIn: false
         }
-        var res = loginReducer(df(''),df(action));
-        expect(res).toEqual(action);
+        var userState={
+            userId: -1,
+            userName: 'test',
+            password: 'test',
+            loginAt: undefined
+        }
+        var res = loginReducer('',df(action));
+        //console.log('loginReducer.test.res:',res);
+        expect(res).toEqual(userState);
     });  
 })

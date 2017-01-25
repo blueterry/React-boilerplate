@@ -30,6 +30,7 @@ module.exports ={
             './app/actions',
             './app/api',
             './app/components',            
+            './app/locales',
             './app/reducers',
             './app/store'
         ],

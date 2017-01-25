@@ -16,8 +16,12 @@ export default {
         }
         
         localStorage.setItem('user', JSON.stringify(theUser));
-        console.log('localStorage:', localStorage.getItem('user'));
+        //console.log('localStorage:', localStorage.getItem('user'));
         return theUser;
+    },
+
+    setLocalUser(user){
+        localStorage.setItem('user', JSON.stringify(user));
     },
 
     getLocalUser(){
@@ -29,10 +33,10 @@ export default {
         
         var url = new URL('http://www.rkete.com:9000/query/UserMan.asmx/VerifyUser');        
         //polyfill();        
-        console.log('1. verify User url, userName, password:', url.toString(), userName, password);
+        //console.log('1. verify User url, userName, password:', url.toString(), userName, password);
 
         return dispatch =>{
-            console.log('dispatching....');
+            //console.log('dispatching....');
             dispatch(login(userName,password));
             //fetchMock.get('*', {userId: 1});
             var res = fetch(url,{
@@ -46,7 +50,7 @@ export default {
             .then((abc)=>abc.json())
             .then(json=>{
                 var userId = parseInt(json);
-                console.log('3. json-json-userId:', json, userId);
+                //console.log('3. json-json-userId:', json, userId);
                 var user ={
                     userId: -1,
                     userName: ''
@@ -57,9 +61,10 @@ export default {
                         userName: userName
                     }                    
                 }
-                localStorage.setItem('user', JSON.stringify(user));
-                console.log('localStorage user: ', localStorage.getItem('user'));
-                dispatch(userId> 0?loginSuccess(userId): loginFail(userName));
+                console.log('loginAPI.verifyUser.savingLocUser', user);
+                localStorage.setItem('user', JSON.stringify(user)); //
+                //console.log('localStorage user: ', localStorage.getItem('user'));
+                dispatch(userId> 0?loginSuccess(userId, userName): loginFail(userName));
             });
             //fetchMock.restore();
             return res;

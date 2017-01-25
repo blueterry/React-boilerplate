@@ -16,22 +16,19 @@ export var checkLocal = () =>{
     return{
         type: GET_LOCAL_USER,
         loggingIn:false,
-        user:{
-            password: undefined,
-            ...user
-        }
+        password: undefined,
+        ...user
+        
     }
 }
 
 export var login = (userName, password) =>{
-    console.log('login action: userName, password:', userName, password);
+    //console.log('login action: userName, password:', userName, password);
     return {
         type: LOGGING_IN,
-        user:{
-            userName,
-            password,
-            userId: -1,        
-        },
+        userName,
+        password,
+        userId: -1,        
         loggingIn: true
     };
 
@@ -40,38 +37,37 @@ export var login = (userName, password) =>{
     //}
 };
 
-export var loginSuccess = (userId) =>{
-    console.log('loginSuccess action:',userId)
-    var locUser = loginAPI.getLocalUser();
+export var loginSuccess = (userId,userName) =>{
+    //console.log('loginSuccess action:',userId)
+    
     return{
         type: LOGGED_IN,
         loggingIn: false,        
-        user:{
-            ...locUser,            
-            userId,
-            loginAt: moment().unix()        
-        }
+        userName,
+        userId,
+        loginAt: moment().unix()                
     }
 };
 
 export var loginFail = (userName)=>{
-    console.log('loginFail action:')
+    //console.log('loginFail action:')
     return {
         type: LOGIN_FAIL,
         loggingIn:false,
-        user:{
-            userId: -1,
-            userName,
-            password: undefined
-        }
+        userId: -1,
+        userName,
+        password: undefined        
     }
 }
 
 export var logOut = ()=>{
-    console.log('loginOut action:')
+    //console.log('loginOut action:')
     return {
         type: NOT_LOGIN_YET,
-        user: undefined,
+        userId: undefined,
+        userName: undefined,
+        password: undefined,
+        loginAt: undefined,
         loggingIn:false
     }
 }

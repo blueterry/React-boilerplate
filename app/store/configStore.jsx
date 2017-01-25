@@ -4,10 +4,10 @@ import thunkMiddleware from 'redux-thunk';
 import {loginReducer} from 'loginReducer';
 
 export var configStore = (initState = {
-    user: undefined    
+    user:{}
 }) => {
     var reducer = combineReducers({
-        user: loginReducer
+       user: loginReducer
     });
 
     var store = createStore(reducer, initState, compose(
