@@ -6,7 +6,9 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
 import {checkLocal} from 'loginActions';
 import {configStore} from 'configStore';
+
 import Main from 'Main';
+import Loginform from 'LoginForm';
 
 //Load foundation
 //require('style!css!foundation-sites/dist/css/foundation.min.css') -- done in webpackconfig.js sassLoader
@@ -29,7 +31,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={Main}>
-                
+                <Route path="loginform" component={Loginform}>Login</Route>
             </Route>
         </Router>
     </Provider>,
