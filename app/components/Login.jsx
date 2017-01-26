@@ -16,7 +16,7 @@ export class Login extends Component {
         //console.log('components-login.the user:',user, user !== undefined);
         var renderLogin = ()=>{
             if(user !== undefined && user.userId > 0){
-                return (<div>Current: {user.userName} </div>);
+                return (<div><FormattedMessage id="currentUser"></FormattedMessage> : {user.userName} </div>);
             }
             return (
                 <Link to="loginform" activeClassName="active-link"><FormattedMessage id="loginButton"/></Link>

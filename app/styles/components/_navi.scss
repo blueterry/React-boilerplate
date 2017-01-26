@@ -11,6 +11,18 @@
         a {
             display: inline;
             padding: 0;
+            color: $nav-text-color;
+        }
+        button{
+            display: inline;
+            padding: 0 30 0 10;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: $nav-text-color;
+            cursor: pointer;
+        }
+        button:hover{
+            color: $primary-color;
         }
     }
     

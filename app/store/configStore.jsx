@@ -2,12 +2,15 @@ import redux,{combineReducers, compose, createStore, applyMiddleware} from 'redu
 import thunkMiddleware from 'redux-thunk';
 
 import {loginReducer} from 'loginReducer';
+import {langReducer} from 'langReducer';
 
 export var configStore = (initState = {
-    user:{}
+    user: {},
+    lang: "en"
 }) => {
     var reducer = combineReducers({
-       user: loginReducer
+       user: loginReducer,
+       lang: langReducer
     });
 
     var store = createStore(reducer, initState, compose(
@@ -16,5 +19,4 @@ export var configStore = (initState = {
     ));
 
     return store;
-
 };

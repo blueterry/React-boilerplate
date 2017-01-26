@@ -39,7 +39,7 @@ class LoginForm extends Component {
         var renderForm = ()=>{
             if(user !== undefined && user.userId > 0){ //Already logged in
                 return(
-                    <div>
+                    <div className="columns medium-6 large-4 small-centered">  
                         <h1 className="title"><FormattedMessage id='loginSuccessTitle' values={{userName : user.userName}}/></h1>
                         <button className="button expanded" onClick={this.onLogout}><FormattedMessage id="logoutButton"/></button> 
                     </div>
@@ -49,7 +49,7 @@ class LoginForm extends Component {
             //console.log('fail login:', user);
             
             return(
-                <div>
+                <div className="columns medium-6 large-4 small-centered">  
                     <h1 className="title"><FormattedMessage id='loginTitle'/></h1>                        
                     <form onSubmit={this.onLogin}>            
                         <InputEx locId="phUserName" ref="userNameEx" refName="userName" type="text" className="text"/>                     

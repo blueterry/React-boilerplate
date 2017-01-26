@@ -7,21 +7,22 @@ import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
 import intl from 'intl';
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
+import {getLang} from 'langReducer';
+
 addLocaleData([...en, ...zh]);
 
 class Main extends Component {
     render() {
-        
+        var theLang = getLang();
+        console.log('Main-theLang:',theLang);
         return (
-            <IntlProvider locale={'zh'} messages={zh_CN}>
-            <div>                
-                <Nav/>
-                <div className="row">
-                    <div className="columns medium-6 large-4 small-centered">                        
+            <IntlProvider locale={theLang} messages={theLang === "en" ? en_US : zh_CN}>
+                <div>                
+                    <Nav/>
+                    <div className="row">                                          
                         {this.props.children} 
-                    </div> 
+                    </div>
                 </div>
-            </div>
             </IntlProvider>
         );
     }

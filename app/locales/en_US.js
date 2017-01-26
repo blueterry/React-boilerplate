@@ -1,7 +1,15 @@
 const en_US = {
+    //Nav 
+    appName: 'React Redux Boilerplate',
+    aboutMenu: 'About',
+    createdBy: 'Created By',
+    creator: 'Rekete',
+    homeMenu: 'Home',
+    langChanged: 'System langugage changed, please refresh the page',
+
     //Login Form
     currentUser:'Current',
-    loginTitle: 'Please login to System',
+    loginTitle: 'Please Login',
     loginSuccessTitle: 'Hello {userName}, welcome!',
     logoutButton: 'Logout',
     loginButton: 'Login',    

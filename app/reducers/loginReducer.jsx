@@ -45,6 +45,7 @@ function user(state={
 }
 
 export var loginReducer  = (state=[], action) =>{
+    console.log('loginReducer:', action.type);
     switch(action.type){
         case NOT_LOGIN_YET:
         case LOGGED_IN:
