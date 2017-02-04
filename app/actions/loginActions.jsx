@@ -17,8 +17,7 @@ export var checkLocal = () =>{
         type: GET_LOCAL_USER,
         loggingIn:false,
         password: undefined,
-        ...user
-        
+        ...user        
     }
 }
 

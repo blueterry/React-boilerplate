@@ -18,6 +18,9 @@ const zh_CN = {
     loginShort: '登录',    
     phUserName: '请输入用户名',
     phPassword: '请输入密码',
+
+    //User Info
+    notLoginYet: '尚未登录'
 }
 
 export default zh_CN;

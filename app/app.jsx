@@ -6,6 +6,7 @@ import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
 import {checkLocal} from 'loginActions';
 import {changeToEnglish, changeToSimpChinese} from 'langActions';
+import {initMainMenu} from 'menuActions';
 import {configStore} from 'configStore';
 
 import loginAPI from 'loginAPI';
@@ -23,27 +24,29 @@ $(document).foundation();
 require('style!css!sass!appStyles');
 
 var store = configStore();
-var locUser = checkLocal();
+//var locUser = checkLocal();
 var curLang = getLang();
+//var mainMenu = initMainMenu();
 var inited = false;
-//console.log('localStorage.user:',localStorage.getItem('user'));
+console.log('localStorage.user:', localStorage.getItem('user'));
 //console.log('local user init:', locUser);
-console.log('local lang init:', curLang);
+//console.log('local lang init:', curLang);
+//console.log('mainmenu:', mainMenu);
 
 store.subscribe(()=>{
     var state = store.getState();            
     if(!inited){
-        state.lang = curLang;
-        inited = true;
+        //state.mainMenus = mainMenu;    
+        inited = true;        
+        state.lang = curLang;        
     }
-    console.log('---state changed:',state);        
+    console.log('---state changed:',state);
     loginAPI.setLocalUser(state.user);    
     saveLang(state.lang);
 });
-
+store.dispatch(initMainMenu());
 store.dispatch(checkLocal());
 //store.dispatch(changeToSimpChinese());
-
 //var initialUser = JSON.parse(localStorage.getItem('user'));
 
 ReactDOM.render(

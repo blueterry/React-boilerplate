@@ -8,6 +8,9 @@ class About extends Component {
                 <p>
                     <b>react-intl</b>: make the app support multi-culture and languages.
                 </p>
+                <p className="register-box-body"> 
+                    <b>react-notification-system</b>: make a beautiful pop up notification window.
+                </p>
             </div>
         );
     }

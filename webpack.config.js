@@ -1,7 +1,6 @@
 //webpack ./public/app.js ./public/bundle.js
 
 var webpack = require('webpack');
-
 var path = require('path');
 
 module.exports ={
@@ -20,8 +19,8 @@ module.exports ={
         })
     ],
     output: {
-        path: __dirname,
-        filename: './public/bundle.js'
+        path: __dirname + '/public',
+        filename: './js/bundle.js'
     },
     resolve: {
         root: __dirname,
@@ -32,7 +31,9 @@ module.exports ={
             './app/components',            
             './app/locales',
             './app/reducers',
-            './app/store'
+            './app/store',
+            './app/styles/img',
+            './app/styles/fonts'
         ],
 
         alias:{            
@@ -51,7 +52,16 @@ module.exports ={
                 },
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
+            },
+            {   
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+                loader: "url-loader?limit=10000&minetype=application/font-woff&name=./fonts/[name].[ext]" 
+            },
+            {   
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+                loader: "file-loader?name=./fonts/[name].[ext]" 
             }
+
         ]        
     },
     sassLoader:{

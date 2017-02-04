@@ -10,6 +10,7 @@
   "author": "Terry",
   "license": "MIT",
   "dependencies": {
+    "admin-lte": "^2.3.11",
     "axios": "^0.15.3",
     "express": "^4.14.0",
     "intl": "^1.2.5",
@@ -31,6 +32,7 @@
     "es6-promise": "^4.0.5",
     "expect": "^1.20.2",
     "fetch-mock": "^5.8.1",
+    "file-loader": "^0.10.0",
     "foundation-sites": "^6.3.0",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1",
@@ -50,6 +52,7 @@
     "sass-loader": "^4.1.1",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.14.0"
   }
 }

@@ -18,6 +18,9 @@ const en_US = {
     loginShort: 'Login',
     phUserName: 'Input your user name',
     phPassword: 'Input your password',
+
+    //User Info
+    notLoginYet: 'Not Logged in'
     
 
 }

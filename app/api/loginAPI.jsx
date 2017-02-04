@@ -21,10 +21,12 @@ export default {
     },
 
     setLocalUser(user){
+        console.log('setLocalUser->user:',user)
         localStorage.setItem('user', JSON.stringify(user));
     },
 
     getLocalUser(){
+        console.log('loginAPI->getLocalUser:', localStorage.getItem('user'));
         return JSON.parse(localStorage.getItem('user'));
     },
     verifyUser(userName, password){

@@ -5,11 +5,12 @@ import {FormattedMessage} from 'react-intl';
 
 import Login from 'Login';
 import Lang from 'Lang';
+//import ImgSrc from 'img';
 
 class Nav extends Component {
-    render() {        
-        return (
-            <div className="top-bar top-bar">
+    render() {       
+        return (    
+         <div className="top-bar top-bar">
                 <div className="top-bar-left">
                     <ul className="menu">
                         <li className="menu-text"><FormattedMessage id="appName" /></li>

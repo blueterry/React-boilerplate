@@ -7,17 +7,17 @@ export var getLang = ()=>{
     } else if(lang.length === 0){
         lang = "en";
     }
-    console.log('langReducer:>>getLang:',lang);
+    //console.log('langReducer:>>getLang:',lang);
     return lang;
 }
 
 export var saveLang = (lang)=>{
-    console.log('langReducer:saveLang:',lang);
+    //console.log('langReducer:saveLang:',lang);
     localStorage.setItem('lang', lang);
 }
 
 export var langReducer = (state=[], action) =>{
-    console.log('langReducer:',state,action.type);
+    //console.log('langReducer:',state,action.type);
     switch(action.type){
         case SET_TO_ENGLISH:
             return Object.assign({}, state.lang, {lang:"en"}).lang;

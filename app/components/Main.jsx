@@ -9,6 +9,9 @@ import intl from 'intl';
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
 import {getLang} from 'langReducer';
 
+import MenuMain from 'MenuMain';
+import UserInfo from 'UserInfo';
+
 addLocaleData([...en, ...zh]);
 
 class Main extends Component {
@@ -17,10 +20,18 @@ class Main extends Component {
         console.log('Main-theLang:',theLang);
         return (
             <IntlProvider locale={theLang} messages={theLang === "en" ? en_US : zh_CN}>
-                <div>                
-                    <Nav/>
-                    <div className="row">                                          
-                        {this.props.children} 
+                <div>
+                    <Nav/>                    
+                    <aside className="main-sidebar small-4 medium-4 large-3 columns ">                                               
+                        <section className="sidebar">
+                            <UserInfo/>
+                            <MenuMain/>
+                        </section>
+                    </aside>
+                    <div className="columns small-8 medium-8 large-9">
+                        <div className="row">        
+                            {this.props.children} 
+                        </div>
                     </div>
                 </div>
             </IntlProvider>
